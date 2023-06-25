@@ -12,6 +12,7 @@
 </head>
 <body>
     <h1>Tambah Dokter</h1>
+    
 
     <form method="POST" action="{{ route('doctors.store') }}">
         @csrf
