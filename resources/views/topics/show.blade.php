@@ -22,6 +22,7 @@
 
     <h1> {{ $topic->title }}</h1>
     <div class="card border-3 mb-3" style="background-color:#00FFFF;">
+
         <div class="card-body">
             <div id="card-text-container"></div>
         </div>
@@ -38,6 +39,10 @@
     </div>
     <button type="submit" class="btn btn-primary mt-2">Comment</button>
 </form>
+
+
+ 
+
 
 
 @endsection
@@ -64,7 +69,7 @@ $(document).ready(function() {
                     
                     var createdAt = response.data[i].created_at;
                     var cardContainer = $('<div class="card-container"></div>');
-                    var timeElement = $('<h7 class="time text-secondary"></h7>').text(createdAt);
+                    var timeElement = $('<h7 class="time text-secondary"></h7>' ).text(createdAt);
                     var contentElement = $('<h5 class="card-text fw-bold"></h5>').text(response.data[i].content);
                     cardContainer.append(timeElement, contentElement);
                     $('#card-text-container').append(cardContainer);
