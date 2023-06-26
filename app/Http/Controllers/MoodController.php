@@ -27,10 +27,11 @@ class MoodController extends Controller
     {
         $user = auth()->user();
         $mood = Mood::where('username', $user->username)->first();
-        $day = date('l', $mood->created_at);
-        $dated = date('d', $mood->created_at);
-        $datem = date('F', $mood->created_at);
-        $datey = date('Y', $mood->created_at);
+        $timestamp = strtotime($mood->created_at);
+        $day = date('l', $timestamp);
+        $dated = date('d', $timestamp);
+        $datem = date('F', $timestamp);
+        $datey = date('Y', $timestamp);
         return view('moods.result')->with("mood", $mood)->with("day", $day)->with("dated", $dated)->with("datem", $datem)->with("datey", $datey);
     }
 

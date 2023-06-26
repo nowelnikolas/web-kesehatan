@@ -1,50 +1,56 @@
 @extends('layouts.main')
 
 @section('container')
-
+<!-- resources/views/moods/index.blade.php -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Daftar Dokter Terdekat</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add your head content here -->
 </head>
 <body>
-    <div class="container">
-        <h1>Daftar Dokter Terdekat</h1>
 
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
+<header class="py-5">
+    <div class="container px-5 pb-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-md-12">
+                <h1 class="text-center">Psychiatrists</h1>
+                <div class="d-flex justify-content-center mt-5 mt-xxl-0">
+                    <div class="profile bg-gradient-primary-to-secondary">
+                        {{-- <img class="profile-img img-fluid mb-3" src="assets/Emoji.png" alt="..." /> --}}
+                    </div>
+                </div>
+                <div>
+                    <div class="text-center mb-3">
+                        <button id="find-nearest-button">Find Nearest Psychiatrists</button>
+                    </div>
+                </div>
+                <div id="map" style="width: 100%; height: 400px;"></div>
             </div>
-        @endif
-
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Nama</th>
-                    <th>Rumah Sakit</th>
-                    <th>Nomor Telepon</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($doctors as $doctor)
-                <tr>
-                    <td>{{ $doctor->name }}</td>
-                    <td>{{ $doctor->hospital }}</td>
-                    <td>{{ $doctor->phone_number }}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-
-        @auth
-            @if (auth()->user()->isAdmin())
-                <a href="{{ route('doctors.create') }}" class="btn btn-primary">Tambah Dokter</a>
-            @endif
-        @endauth
+        </div>
     </div>
+</header>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+<script>
+    var latitude = -6.283522;
+    var longitude = 106.711296;
+
+    var platform = new H.service.Platform({
+        apikey: '-gUb8pVyaI_-aVX5VQDEEH8SOjpery8OlbaCIzJbGiM',
+    });
+
+    var defaultLayers = platform.createDefaultLayers();
+
+    var map = new H.Map(document.getElementById('map'), defaultLayers.vector.normal.map, {
+        center: { lat: latitude, lng: longitude },
+        zoom: 12,
+    });
+
+    var marker = new H.map.Marker({ lat: latitude, lng: longitude });
+    map.addObject(marker);
+</script>
+
 </body>
 </html>
 

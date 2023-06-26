@@ -111,3 +111,4 @@ Route::post('/doctors', [DoctorController::class, 'store'])->name('doctors.store
 
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
+Route::get('/places/find-nearest-psychiatrists', 'App\Http\Controllers\PlacesController@findNearestPsychiatrists');
