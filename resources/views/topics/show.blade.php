@@ -7,6 +7,9 @@
 
 <p>{{ $topic->content }}</p>
 
+
+
+
 <h2>Balasan</h2>
 
 @if(session('success'))
@@ -15,16 +18,17 @@
     </div>
 @endif
 
-@foreach($topic->replies as $reply)
+{{-- @foreach($topic->replies as $reply) --}}
     <div class="card mb-3">
         <div class="card-body">
-            <p class="card-text">{{ $reply->content }}</p>
-            <p class="card-text">Created at: {{ $reply->created_at }}</p>
+            <div id="card-text-container"></div>
         </div>
     </div>
-@endforeach
+{{-- @endforeach --}}
 
-<form action="{{ route('replies.store', $topic->id) }}" method="POST">
+<input type="hidden" name="idtop" id="idtop" value="{{ $id }}" readonly>
+
+<form action="{{ route('replies.store', $id) }}" method="POST">
     @csrf
     <div class="form-group">
         <label for="content">Comment</label>
@@ -35,3 +39,93 @@
 
 
 @endsection
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+//    document.addEventListener("DOMContentLoaded", function() {
+        
+$(document).ready(function() {
+    var idValue = document.getElementById("idtop").value;
+
+        // console.log(idValue);
+    $.ajax({
+        url: '{{ route('getReplies') }}',
+        data: {
+            id: idValue // Pass the desired ID
+        },
+        method: 'GET',
+        success: function(response) {
+            var count = response.recordsTotal;
+            if(count != 0){
+                for(var i = 0; i<count; i++){
+                    // console.log(response.data[i]);
+                    
+                    var createdAt = response.data[i].created_at;
+                    var cardContainer = $('<div class="card-container"></div>');
+                    var timeElement = $('<p class="time"></p>').text(createdAt);
+                    var contentElement = $('<p class="card-text"></p>').text(response.data[i].content);
+                    cardContainer.append(timeElement, contentElement);
+                    $('#card-text-container').append(cardContainer);
+                }
+            }
+            // console.log(response.data[0]);
+            // console.log(response);
+
+            
+            // if (Array.isArray(response)) {
+            //     response.forEach(function(item) {
+            //         var cardText = $('<p class="card-text"></p>').text(item.text);
+            //         $('#card-text-container').append(cardText);
+            //     });
+            // } else {
+            //     console.log('Response is not an array.');
+            // }
+        },
+        error: function() {
+            console.log('Failed to fetch live text.');
+        }
+    });
+});
+    // });
+    
+    // $(document).ready(function() {
+    //     $.ajax({
+    //         url: '/your-api-endpoint', // Replace with your API endpoint URL
+    //         method: 'GET',
+    //         success: function(response) {
+    //             response.forEach(function(item) {
+    //                 var cardText = $('<p class="card-text"></p>').text(item.text);
+    //                 $('#card-text-container').append(cardText);
+    //             });
+    //         },
+    //         error: function() {
+    //             console.log('Failed to fetch live text.');
+    //         }
+    //     });
+    // });
+</script>
+
+{{-- @push('js')
+<script>
+    var pass = document.getElementById('id').value;
+    console.log(pass);
+    // $(document).ready(function() {
+    //     $.ajax({
+    //         url: '{{ route('getApplied') }}', 
+    //         data: function (d) {
+    //                 d.id = pass; // Pass the desired ID
+    //         }// Replace with your API endpoint URL
+    //         method: 'GET',
+    //         success: function(response) {
+    //             response.forEach(function(item) {
+    //                 var cardText = $('<p class="card-text"></p>').text(item.text);
+    //                 $('#card-text-container').append(cardText);
+    //             });
+    //         },
+    //         error: function() {
+    //             console.log('Failed to fetch live text.');
+    //         }
+    //     });
+    // });
+</script>
+@endpush --}}

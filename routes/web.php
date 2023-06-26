@@ -78,8 +78,12 @@ Route::get('/dashboard', function(){
 Route::get('/forum', [TopicController::class, 'index'])->name('topics.index');
 Route::get('/forum/topics/create', [TopicController::class, 'create'])->name('topics.create');
 Route::post('/forum/topics', [TopicController::class, 'store'])->name('topics.store');
-Route::get('/forum/topics/{topic}', [TopicController::class, 'show'])->name('topics.show');
+// Route::get('/forum/topics/{topic}', [TopicController::class, 'show'])->name('topics.show');
+Route::post('/forum/topic/detail', [TopicController::class, 'show'])->name('topics.show');
 Route::post('/forum/topics/{topic}/replies', [ReplyController::class, 'store'])->name('replies.store');
+
+Route::get('/getReplies', [ReplyController::class, 'getReplies'])->name('getReplies');
+
 
 Route::get('/moods', [MoodController::class, 'index'])->name('moods.index');
 Route::get('/moods/create', [MoodController::class, 'create'])->name('moods.create');
