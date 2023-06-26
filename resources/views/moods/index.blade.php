@@ -78,7 +78,7 @@
                         <a class="btn btn-success btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="{{ route('moods.create') }}">Track your mood</a>  
                     </div>
                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                        <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="">MoodTracker History</a>  
+                        <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="{{ route('moods.history') }}">MoodTracker History</a>  
                     </div>
                       
                     </div>
