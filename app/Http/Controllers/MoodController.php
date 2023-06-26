@@ -27,17 +27,17 @@ class MoodController extends Controller
     {
         $user = auth()->user();
         $mood = Mood::where('username', $user->username)->first();
-        $day = date('l', $mood->create_at);
-        $dated = date('d', $mood->create_at);
-        $datem = date('F', $mood->create_at);
-        $datey = date('Y', $mood->create_at);
+        $day = date('l', $mood->created_at);
+        $dated = date('d', $mood->created_at);
+        $datem = date('F', $mood->created_at);
+        $datey = date('Y', $mood->created_at);
         return view('moods.result')->with("mood", $mood)->with("day", $day)->with("dated", $dated)->with("datem", $datem)->with("datey", $datey);
     }
 
     public function history()
     {
         $user = auth()->user();
-        $mood = Mood::where('username', $user->username);
+        $mood = Mood::where('username', $user->username)->get();
         // $day = date('l', $mood->create_at);
         // $dated = date('d', $mood->create_at);
         // $datem = date('F', $mood->create_at);
