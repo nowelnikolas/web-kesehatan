@@ -83,7 +83,11 @@ Route::post('/forum/topics/{topic}/replies', [ReplyController::class, 'store'])-
 
 Route::get('/moods', [MoodController::class, 'index'])->name('moods.index');
 Route::get('/moods/create', [MoodController::class, 'create'])->name('moods.create');
+Route::get('/moods/activity', [MoodController::class, 'activity'])->name('moods.activity');
+Route::get('/moods/result', [MoodController::class, 'result'])->name('moods.result');
+Route::get('/moods/history', [MoodController::class, 'history'])->name('moods.history');
 Route::post('/moods', [MoodController::class, 'store'])->name('moods.store');
+Route::post('/moodstodo', [MoodController::class, 'storetodo'])->name('moods.storetodo');
 
 
 

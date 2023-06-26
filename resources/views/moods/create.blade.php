@@ -75,23 +75,28 @@
                 @csrf
             <div>
                 <input type="radio" id="mood" name="mood" value="marah" checked>
+                {{-- <input type="hidden" id="img" name="img" value="assets/Angry-removebg-preview.png"> --}}
                 <img class="small-img" src="{{ asset('assets/Angry-removebg-preview.png') }}" alt="..." style="width: 200px; height:auto;"  />
             </div>
             
             <div>
                 <input type="radio" id="mood" name="mood" value="senang">
+                {{-- <input type="hidden" id="img" name="img" value="assets/Happyg-removebg-preview.png"> --}}
                 <img class="small-img" src="{{ asset('assets/Happyg-removebg-preview.png') }}" alt="..." style="width: 200px; height:auto;"/>
             </div>
             
             <div>
                 <input type="radio" id="mood" name="mood" value="sedih">
+                {{-- <input type="hidden" id="img" name="img" value="assets/Sad-removebg-preview.png"> --}}
                 <img class="small-img" src="{{ asset('assets/Sad-removebg-preview.png') }}" alt="..." style="width: 200px; height:auto;"/>
               </div>
 
               <div>
                 <input type="radio" id="mood" name="mood" value="senyum">
+                {{-- <input type="hidden" id="img" name="img" value="assets/Smile-removebg-preview.png"> --}}
                 <img class="small-img" src="{{ asset('assets/Smile-removebg-preview.png') }}" alt="..." style="width: 200px; height:auto;"/>
               </div>
+
               <button type="submit" class="btn btn-primary">Tambah</button>
             </form>
         </div>
