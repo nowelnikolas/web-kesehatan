@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'username',
         'email',
+        'avatar',
         'password',
     ];
 
@@ -33,6 +34,11 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    protected $guarded = [
+        'avatar',
+    ];
+
 
     /**
      * The attributes that should be cast.
@@ -52,6 +58,12 @@ class User extends Authenticatable
         $this->name = $data['name'];
         $this->username = $data['username'];
         $this->email = $data['email'];
+        if (isset($data['avatar'])) {
+            $avatar = $data['avatar'];
+            // $avatarPath = $avatar->store('public/assets');
+            $this->avatar = 'assets/' . $avatar->getClientOriginalName();
+        }
+    
         $this->save();
     }
 

@@ -16,13 +16,21 @@
         <li class="nav-item">
           <a class="nav-link" href="/doctors" >Find Psikiater</a>
         </li>
+        <?php $admin = auth()->user(); ?>
+
+        @if ($admin && $admin->username === 'admin')
+            <li class="nav-item">
+                <a class="nav-link" href="/article">Manage Article</a>
+            </li>
+        @endif
       </ul>
 
       <ul class="navbar-nav ms-auto">
         @auth
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Welcome back, {{ auth()->user()->name }}
+            <?php $ava = auth()->user()->avatar; ?>
+            <img class="small-img img-fluid" src="{{ asset($ava) }}" width="50" height="50" alt="..."  />
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i> My Dashboard</a></li>

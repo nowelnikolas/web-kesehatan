@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reply extends Model
 {
     protected $fillable = ['content',
-    'tpoic_id',
+    'topic_id',
     'user_id'];
 
     public function topic()
@@ -18,6 +18,6 @@ class Reply extends Model
 
     public function user()
     {
-        return $this->belongsTo(Users::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

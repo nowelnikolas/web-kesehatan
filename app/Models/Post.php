@@ -38,6 +38,15 @@ class Post extends Model
         ];
     }
 
+    public function updatePost(array $data)
+    {
+        $this->title = $data['title'];
+        $this->slug = $data['slug'];
+        $this->excerpt = $data['excerpt'];
+        $this->body = $data['body'];
+        $this->save();
+    }
+
 
 
 }

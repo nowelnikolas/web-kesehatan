@@ -33,7 +33,7 @@ class ReplyController extends Controller
     public function getReplies(Request $request)
     {
         $id = $request->id;
-        $topic = Reply::where('topic_id', $id)->get();
+        $topic = Reply::with('user')->where('topic_id', $id)->get();
         if(!$topic){
             $topic = NULL;
             $totalRecords = 0;
@@ -42,13 +42,18 @@ class ReplyController extends Controller
 
         $totalRecords = count($topic);
 
+        foreach ($topic as $reply) {
+            $reply->topic_date = date('d-m-Y', strtotime($reply->created_at)); // Format: dd-mm-yyyy
+            $reply->topic_time = date('H:i:s', strtotime($reply->created_at)); // Format: 21:00:00
+        }
+
         $response = [
             'draw' => 1,
             'recordsTotal' => $totalRecords,
             'recordsFiltered' => $totalRecords,
             'data' => $topic
         ];
-    
+        // dd($response);
         return response()->json($response);
     }
 }

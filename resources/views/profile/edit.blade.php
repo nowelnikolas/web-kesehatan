@@ -1,7 +1,30 @@
-<div class="container">
-    <form method="POST" action="{{ route('profile.update') }}" class="card p-4">
-        @csrf
+@extends('layouts.main')
 
+@section('container')
+<div class="row justify-content-center">
+    <div class="col-md-5">
+
+
+   @if(session()->has('success')) 
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ session('success') }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+  </div>
+@endif
+
+
+
+@if(session()->has('loginError')) 
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{ session('loginError') }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+  </div>
+@endif
+
+    {{-- <main class="form-signin"> --}}
+        <form method="POST" action="{{ route('profile.update') }}" class="card p-4" enctype="multipart/form-data">
+            @csrf
+    
         <div class="form-group">
             <label for="name">Name</label>
             <input id="name" type="text" name="name" value="{{ old('name', auth()->user()->name) }}" required autofocus
@@ -29,6 +52,19 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-primary">Update Profile</button>
+        <div class="form-group">
+            <label for="avatar">Ava</label>
+            <input type="file" class="form-control-file" id="avatar" name="avatar">
+          </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Update Profile</button>
+        </div>
     </form>
+{{-- </main> --}}
+    </div>
 </div>
+
+
+
+@endsection

@@ -58,7 +58,10 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
 Route::get('home/{post:slug}', [PostController::class, 'show']);
 
-
+Route::get('article', [PostController::class, 'article'])->name('article');
+Route::post('article/edit', [PostController::class, 'edit'])->name('article.edit');
+Route::delete('/data/{id}', [PostController::class, 'delete'])->name('deleteArc');
+Route::post('/article/editpost', [PostController::class, 'editpost'])->name('article.editpost');
 
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');

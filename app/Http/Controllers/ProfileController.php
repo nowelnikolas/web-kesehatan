@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProfileController extends Controller
 {
@@ -33,6 +35,15 @@ class ProfileController extends Controller
             'username' => 'required|string|max:255|unique:users,username,'.$user->id,
             'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
         ]);
+
+        $avatar = $request->file('avatar');
+
+        // dd($request->file('avatar'));
+
+        if ($request->hasFile('avatar')) {
+            $avatarPath = 'public/assets/' . $avatar->getClientOriginalName();
+            $avatar->move(public_path('assets'), $avatarPath);
+        }
 
         $user->updateProfile($request->all());
 

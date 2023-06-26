@@ -27,4 +27,58 @@ class PostController extends Controller
             'post' => $post
         ]);
     }
+
+    public function article()
+    {
+        $post = Post::orderBy('created_at', 'desc')->get();
+        return view('article.manage')->with("article", $post);
+    }
+
+    public function delete($id)
+    {
+        $post = Post::find($id);
+        if ($post) {
+            $post->delete();
+            return redirect()->back()->with('success', 'Post deleted successfully.');
+        }
+        $post = Post::orderBy('created_at', 'desc')->get();
+        return view('article.manage')->with("article", $post);
+    }
+
+    function edit(Request $request)
+        {
+            $id  = $request->idarc == null ? '' : $request->idarc;
+
+            $post = Post::where('id', $id)->first();
+            // $topics = Topic::withCount('replies')->orderByDesc('created_at')->get();
+            // $judul  = $request->namevac == null ? '' : $request->namevac;
+            
+            return view('article.edit')->with('id', $id)->with("post", $post);
+        }
+
+        public function editpost(Request $request)
+        {
+            $post = Post::find($request->id);
+
+            $request->validate([
+                'title' => 'required',
+                'slug' => 'required',
+                'excerpt' => 'required',
+                'body' => 'required',
+            ]);
+
+            $post->title = $request->title;
+            $post->slug = $request->slug;
+            $post->excerpt = $request->excerpt;
+            $post->body = $request->body;
+            $post->save();
+
+            $post = Post::orderBy('created_at', 'desc')->get();
+        return view('article.manage')->with("article", $post);
+
+            //
+          
+        }
+
+       
 }

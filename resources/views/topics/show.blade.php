@@ -40,6 +40,21 @@
     <button type="submit" class="btn btn-primary mt-2">Comment</button>
 </form>
 
+<style>
+    .card-container {
+  display: flex;
+}
+
+.avatar {
+  flex-shrink: 0; /* Prevent the image from shrinking */
+  margin-right: 10px; /* Add some spacing between the picture and the content */
+}
+
+.content-container {
+  flex-grow: 1; /* Allow the content to take up remaining space */
+}
+</style>
+
 
  
 
@@ -67,11 +82,24 @@ $(document).ready(function() {
                 for(var i = 0; i<count; i++){
                     // console.log(response.data[i]);
                     
-                    var createdAt = response.data[i].created_at;
-                    var cardContainer = $('<div class="card-container"></div>');
-                    var timeElement = $('<h7 class="time text-secondary"></h7>' ).text(createdAt);
+                    var date = response.data[i].topic_date;
+                    var time = response.data[i].topic_time;
+                    var datetime = time + ' ' + date;
+                    var pictureUrl = '{{ asset('') }}' + response.data[i].user.avatar;
+                    console.log(pictureUrl);
+
+                    var cardContainer = $('<div class="card-container"></div><br>');
+
+                    var pictureElement = $('<img class="avatar" width="50" height="50">').attr('src', pictureUrl);
+
+                    var contentContainer = $('<div class="content-container"></div>');
+                    var timeElement = $('<h7 class="time text-secondary"></h7>').text(datetime);
                     var contentElement = $('<h5 class="card-text fw-bold"></h5>').text(response.data[i].content);
-                    cardContainer.append(timeElement, contentElement);
+
+                    contentContainer.append(timeElement, contentElement);
+
+                    cardContainer.append(pictureElement, contentContainer);
+
                     $('#card-text-container').append(cardContainer);
                 }
             }
