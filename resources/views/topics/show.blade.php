@@ -105,7 +105,7 @@ $(document).ready(function() {
 
                     var cardContainer = $('<div class="card-container"></div><br>');
 
-                    var pictureElement = $('<img class="avatar" width="50" height="50">').attr('src', pictureUrl);
+                    var pictureElement = $('<img class="avatar mt-3" width="50" height="50">').attr('src', pictureUrl);
 
                     var contentContainer = $('<div class="content-container"></div>');
                     var timeElement = $('<h7 class="time text-secondary"></h7>').text(datetime);
