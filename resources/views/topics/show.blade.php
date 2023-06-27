@@ -53,6 +53,21 @@
 .content-container {
   flex-grow: 1; /* Allow the content to take up remaining space */
 }
+
+.own-message {
+    background-color: #3f51b5;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.other-message {
+    background-color: #f1f0f0;
+    color: #333333;
+    padding: 10px;
+    border-radius: 10px;
+
+}
 </style>
 
 
@@ -96,6 +111,14 @@ $(document).ready(function() {
                     var timeElement = $('<h7 class="time text-secondary"></h7>').text(datetime);
                     var contentElement = $('<h5 class="card-text fw-bold"></h5>').text(response.data[i].content);
 
+                    if (response.data[i].user.id == {{ auth()->user()->id }}) {
+                        cardContainer.addClass('flex-row-reverse');
+                        contentContainer.addClass('text-end');
+                        contentElement.addClass('own-message');
+                    } else{
+                        contentElement.addClass('other-message');
+                    }
+
                     contentContainer.append(timeElement, contentElement);
 
                     cardContainer.append(pictureElement, contentContainer);
@@ -103,18 +126,7 @@ $(document).ready(function() {
                     $('#card-text-container').append(cardContainer);
                 }
             }
-            // console.log(response.data[0]);
-            // console.log(response);
-
-            
-            // if (Array.isArray(response)) {
-            //     response.forEach(function(item) {
-            //         var cardText = $('<p class="card-text"></p>').text(item.text);
-            //         $('#card-text-container').append(cardText);
-            //     });
-            // } else {
-            //     console.log('Response is not an array.');
-            // }
+    
         },
         error: function() {
             console.log('Failed to fetch live text.');

@@ -14,7 +14,7 @@
             <div class="col-lg-11 col-xl-9 col-xxl-8">
                 <h1>Manage Article</h1>
                 <div class="text-end mb-3">
-                    <a href="{{ route('topics.create') }}" class="btn btn-success">Create Article</a>
+                    <a href="{{ route('article.create') }}" class="btn btn-success">Create Article</a>
                 </div>
                 <!-- Project Card 1-->
                 @foreach ($article as $arc)
@@ -42,7 +42,9 @@
                                 </div>
                             </div>
                             <div class="text-end col-5">
-                            <img class="img-fluid" src="{{ asset('assets/study.jpeg') }}" alt="..." />
+                                {{-- <img class="small-img img-fluid" src="{{ asset('assets/Angry-removebg-preview.png') }}" width="auto" alt="..."  /> --}}
+                            <?php $imglink =  $arc->image; ?>
+                            <img class="small-img img-fluid" src="{{ asset($imglink) }}" width="auto" alt="..." />
                             </div>
                         </div>
                     </div>

@@ -44,6 +44,11 @@ class Post extends Model
         $this->slug = $data['slug'];
         $this->excerpt = $data['excerpt'];
         $this->body = $data['body'];
+        if (isset($data['img'])) {
+            $img = $data['img'];
+            // $avatarPath = $avatar->store('public/assets');
+            $this->image = 'assets/' . $img->getClientOriginalName();
+        }
         $this->save();
     }
 

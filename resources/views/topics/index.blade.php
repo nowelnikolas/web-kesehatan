@@ -34,7 +34,8 @@
                                 </div>
                             </div>
                             <div class="text-end col-5">
-                            <img class="img-fluid" src="{{ asset('assets/study.jpeg') }}" alt="..." />
+                                <?php $imglink =  $tp->image; ?>
+                                <img class="small-img img-fluid" src="{{ asset($imglink) }}" width="auto" alt="..." />
                             </div>
                         </div>
                     </div>

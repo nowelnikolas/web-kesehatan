@@ -11,7 +11,7 @@
 
 
     @if($post->image)
-    <img src="{{ asset('storage/' . $post->image) }}" alt="" class="img-fluid">
+    <img src="{{ asset($post->image) }}" alt="" class="img-fluid">
     @else
     <img src="https://source.unsplash.com/1200x400?nature,water" alt="" class="img-fluid">
     @endif

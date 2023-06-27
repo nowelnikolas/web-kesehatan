@@ -42,7 +42,28 @@ class ProfileController extends Controller
 
         if ($request->hasFile('avatar')) {
             $avatarPath = 'public/assets/' . $avatar->getClientOriginalName();
-            $avatar->move(public_path('assets'), $avatarPath);
+            if (file_exists(public_path($avatarPath))) {
+                // Generate a unique identifier
+                $uniqueIdentifier = uniqid();
+                
+                // Get the file extension
+                $extension = $avatar->getClientOriginalExtension();
+                
+                // Generate the new file name with the unique identifier
+                $newAvrName = pathinfo($avatarPath, PATHINFO_FILENAME) . '_' . $uniqueIdentifier . '.' . $extension;
+                
+                // Append the new file name to the path
+                $newAvrPath = str_replace(basename($avatarPath), $newAvrName, $avatarPath);
+                
+                // Move the new file to the desired location with the new name
+                $avatar->move(public_path('assets'), $newAvrPath);
+                
+                // Update the $imgPath variable with the new path
+                $avatarPath = $newAvrPath;
+            } else {
+                // Move the new file to the desired location
+                $avatar->move(public_path('assets'), $avatarPath);
+            }
         }
 
         $user->updateProfile($request->all());

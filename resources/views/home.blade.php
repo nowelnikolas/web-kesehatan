@@ -153,7 +153,7 @@
   @if($home->count())
   <div class="card mb-3">
   @if($home[0]->image)
-    <img src="{{ asset('storage/' . $home[0]->image) }}" alt="" class="img-fluid">
+    <img src="{{ asset($home[0]->image) }}" alt="" class="img-fluid">
     @else
     <img src="https://source.unsplash.com/1200x400?nature,water" class="card-img-top" alt="...">
     @endif
@@ -177,7 +177,7 @@
     <div class="col-md-4 mb-3">
     <div class="card">
     @if($post->image)
-    <img src="{{ asset('storage/' . $post->image) }}" alt="" class="img-fluid">
+    <img src="{{ asset($post->image) }}" alt="" class="img-fluid">
     @else
     <<img src="https://source.unsplash.com/500x400?nature,water" class="card-img-top" alt="...">
     @endif

@@ -27,7 +27,43 @@ class TopicController extends Controller
             'content' => 'required',
         ]);
 
-        Topic::create($request->all());
+        $img = $request->file('img');
+
+        if ($request->hasFile('img')) {
+            $imgPath = 'assets/' . $img->getClientOriginalName();
+            if (file_exists(public_path($imgPath))) {
+                // Generate a unique identifier
+                $uniqueIdentifier = uniqid();
+                
+                // Get the file extension
+                $extension = $img->getClientOriginalExtension();
+                
+                // Generate the new file name with the unique identifier
+                $newImgName = pathinfo($imgPath, PATHINFO_FILENAME) . '_' . $uniqueIdentifier . '.' . $extension;
+                
+                // Append the new file name to the path
+                $newImgPath = str_replace(basename($imgPath), $newImgName, $imgPath);
+                
+                // Move the new file to the desired location with the new name
+                $img->move(public_path('assets'), $newImgPath);
+                
+                // Update the $imgPath variable with the new path
+                $imgPath = $newImgPath;
+            } else {
+                // Move the new file to the desired location
+                $img->move(public_path('assets'), $imgPath);
+            }
+        }
+
+        // dd($imgPath);
+
+        $topic = new Topic([
+            'title' => $request->title,
+            'content' =>  $request->content,
+            'image' => $imgPath,       
+        ]);
+    
+        $topic->save();
         
         return redirect()->route('topics.index')->with('success', 'Topik berhasil ditambahkan.');
     }

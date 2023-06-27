@@ -17,8 +17,7 @@
           <a class="nav-link" href="/doctors" >Find Psikiater</a>
         </li>
         <?php $admin = auth()->user(); ?>
-
-        @if ($admin && $admin->username === 'admin')
+        @if ($admin && $admin->id == '1')
             <li class="nav-item">
                 <a class="nav-link" href="/article">Manage Article</a>
             </li>
