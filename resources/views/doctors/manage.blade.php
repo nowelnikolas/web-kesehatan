@@ -48,9 +48,9 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <form id="addEditPsychiatristForm">
-                        @csrf
+                <form id="addEditPsychiatristForm">
+                    @csrf
+                    <div class="modal-body">
                         <!-- Form inputs for psychiatrist's information -->
                         <input type="hidden" id="psychiatristId" name="psychiatristId">
                         <div class="form-group">
@@ -84,12 +84,12 @@
                             </select>
                         </div>
                         <!-- Add more form inputs as needed -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="savePsychiatristBtn">Save</button>
+                    </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="savePsychiatristBtn">Save</button>
-                </div>
             </div>
         </div>
     </div>
