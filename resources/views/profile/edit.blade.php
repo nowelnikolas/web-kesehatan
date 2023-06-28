@@ -53,11 +53,11 @@
         </div>
 
         <div class="form-group">
-            <label for="avatar">Ava</label>
-            <input type="file" class="form-control-file" id="avatar" name="avatar">
+            <label for="avatar">Avatar</label>
+            <input type="file" class="form-control" id="avatar" name="avatar">
           </div>
 
-        <div class="form-group">
+        <div class="form-group mt-3">
             <button type="submit" class="btn btn-primary">Update Profile</button>
         </div>
     </form>

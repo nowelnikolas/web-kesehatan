@@ -16,7 +16,9 @@
                 <div class="col-md-12">
                     <h1 class="text-center">Manage Psychiatrists</h1>
                     <div class="container">
-                        <a class="btn btn-info" href="javascript:void(0)" id="createNewPost">Add New Psychiatrist</a>
+                        <div class="text-end">
+                            <a class="btn mb-3 text-white" style="background-color: #96be25;" href="javascript:void(0)" id="createNewPost">Add New Psychiatrist</a>    
+                        </div>
                         <table class="table table-bordered data-table">
                             <thead>
                             <tr>

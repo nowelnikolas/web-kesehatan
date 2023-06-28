@@ -31,12 +31,11 @@
                     <div class="card overflow-hidden shadow rounded-4 border-0 mb-5 clickable" onclick="cardClicked()">
                         <div class="card-body p-0">
                             <div class="row align-items-center">
-                                <div class="p-5 col-7">
+                                <div class="p-5">
                                     <h2 class="fw-bolder">{{ $dr->name }}</h2>
-                                    <h1 class="fw">{{ $dr->hospital }}</h1>
-                                    <h1 class="fw">{{ $dr->address }}</h1>
-                                    <h1 class="fw">{{ $dr->province->name }}</h1>
-                                    <h1 class="fw">{{ $dr->city->name }}</h1>
+                                    <h5 class="fw">{{ $dr->hospital }}</h5>
+                                    <h6>{{ $dr->address }}, {{ $dr->province->name }} {{ $dr->city->name }}</h6>
+                                 
                                     <div class="d-flex">
                                         <form action="{{ route('article.edit') }}" method="post">
                                             @csrf
