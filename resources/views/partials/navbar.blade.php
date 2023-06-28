@@ -21,6 +21,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/article">Manage Article</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/managedoctors">Manage Psikiater</a>
+          </li>
         @endif
       </ul>
 

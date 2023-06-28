@@ -111,8 +111,14 @@ Route::get('/psychiatrists/{psychiatrist}', [PsychiatristController::class, 'sho
 
 
 Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index');
+Route::get('/managedoctors', [DoctorController::class, 'manage'])->name('doctors.manage');
 Route::get('dashboard/doctors/create', [DoctorController::class, 'create'])->name('doctors.create');
-Route::post('/doctors', [DoctorController::class, 'store'])->name('doctors.store');
+Route::post('storeDoctor', [DoctorController::class, 'storeDoctor'])->name('storeDoctor');
+Route::post('updateDoctor', [DoctorController::class, 'updateDoctor'])->name('updateDoctor');
+Route::get('/get-doctors', [DoctorController::class, 'getDoctors'])->name('getDoctors');
+Route::get('/getCity/{e}', [DoctorController::class, 'getCity'])->name('getCity');
+Route::get('/getDoctorById/{id}', [DoctorController::class, 'getDoctorById'])->name('getDoctorById');
+Route::post('/deleteDoctor', [DoctorController::class, 'deleteDoctor'])->name('deleteDoctor');
 
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit')->middleware('loginonly');
 Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth')->middleware('loginonly');
