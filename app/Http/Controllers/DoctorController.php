@@ -13,11 +13,23 @@ class DoctorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $doctors = Doctor::all();
-
-        return view('doctors.index', compact('doctors'));
+        $query = Doctor::with('province');
+    
+        $provinceId = $request->input('province_id');
+        if ($provinceId) {
+            $query->where('province_id', $provinceId);
+        }
+    
+        $doctors = $query->get();
+    
+        $provinces = Province::all();
+    
+        return view('doctors.index', [
+            'doctors' => $doctors,
+            'provinces' => $provinces,
+        ]);
     }
 
     /**

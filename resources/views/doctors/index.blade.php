@@ -1,57 +1,56 @@
 @extends('layouts.main')
 
 @section('container')
-<!-- resources/views/moods/index.blade.php -->
-<!DOCTYPE html>
-<html>
-<head>
-    <!-- Add your head content here -->
-</head>
-<body>
 
-<header class="py-5">
-    <div class="container px-5 pb-5">
-        <div class="row gx-5 align-items-center">
-            <div class="col-md-12">
-                <h1 class="text-center">Psychiatrists</h1>
-                <div class="d-flex justify-content-center mt-5 mt-xxl-0">
-                    <div class="profile bg-gradient-primary-to-secondary">
-                        {{-- <img class="profile-img img-fluid mb-3" src="assets/Emoji.png" alt="..." /> --}}
-                    </div>
+<section class="py-5">
+    <div class="container px-5 mb-5">
+        <div class="mb-5">
+        </div>
+
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <h1>Doctors</h1>
+                <div class="text-end mb-3">
+                    <form action="{{ route('doctors.index') }}" method="get">
+                        <div class="input-group">
+                            <select class="form-select" name="province_id" id="provinceFilter">
+                                <option value="">All Provinces</option>
+                                @foreach ($provinces as $province)
+                                    <option value="{{ $province->id }}" {{ request()->input('province_id') == $province->id ? 'selected' : '' }}>
+                                        {{ $province->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <button class="btn btn-success" type="submit">Filter</button>
+                        </div>
+                    </form>
                 </div>
-                <div>
-                    <div class="text-center mb-3">
-                        <button id="find-nearest-button">Find Nearest Psychiatrists</button>
+                <!-- Project Card 1-->
+                @foreach ($doctors as $dr)
+                    @csrf
+                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5 clickable" onclick="cardClicked()">
+                        <div class="card-body p-0">
+                            <div class="row align-items-center">
+                                <div class="p-5 col-7">
+                                    <h2 class="fw-bolder">{{ $dr->name }}</h2>
+                                    <h1 class="fw">{{ $dr->hospital }}</h1>
+                                    <h1 class="fw">{{ $dr->address }}</h1>
+                                    <h1 class="fw">{{ $dr->province->name }}</h1>
+                                    <h1 class="fw">{{ $dr->city->name }}</h1>
+                                    <div class="d-flex">
+                                        <form action="{{ route('article.edit') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="idarc" id="idarc" value="{{ $dr->id }}" readonly>
+                                            <button class="btn btn-sm btn-success" type="submit">Detail</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div id="map" style="width: 100%; height: 400px;"></div>
+                @endforeach
             </div>
         </div>
     </div>
-</header>
-
-<script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
-<script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
-<script>
-    var latitude = -6.283522;
-    var longitude = 106.711296;
-
-    var platform = new H.service.Platform({
-        apikey: '-gUb8pVyaI_-aVX5VQDEEH8SOjpery8OlbaCIzJbGiM',
-    });
-
-    var defaultLayers = platform.createDefaultLayers();
-
-    var map = new H.Map(document.getElementById('map'), defaultLayers.vector.normal.map, {
-        center: { lat: latitude, lng: longitude },
-        zoom: 12,
-    });
-
-    var marker = new H.map.Marker({ lat: latitude, lng: longitude });
-    map.addObject(marker);
-</script>
-
-</body>
-</html>
-
+</section>
 @endsection
