@@ -34,15 +34,8 @@
                                 <div class="p-5">
                                     <h2 class="fw-bolder">{{ $dr->name }}</h2>
                                     <h5 class="fw">{{ $dr->hospital }}</h5>
-                                    <h6>{{ $dr->address }}, {{ $dr->province->name }} {{ $dr->city->name }}</h6>
-                                 
-                                    <div class="d-flex">
-                                        <form action="{{ route('article.edit') }}" method="post">
-                                            @csrf
-                                            <input type="hidden" name="idarc" id="idarc" value="{{ $dr->id }}" readonly>
-                                            <button class="btn btn-sm btn-success" type="submit">Detail</button>
-                                        </form>
-                                    </div>
+                                    <h6>{{ $dr->address }}, {{ $dr->province->name }}, {{ $dr->city->name }}</h6>
+                                    <h6>{{ $dr->phone_number }}</h6>                                   
                                 </div>
                             </div>
                         </div>

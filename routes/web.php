@@ -111,8 +111,8 @@ Route::get('/psychiatrists/{psychiatrist}', [PsychiatristController::class, 'sho
 
 
 Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index');
-Route::get('/managedoctors', [DoctorController::class, 'manage'])->name('doctors.manage');
-Route::get('dashboard/doctors/create', [DoctorController::class, 'create'])->name('doctors.create');
+Route::get('/managedoctors', [DoctorController::class, 'manage'])->name('doctors.manage')->middleware('admin');
+Route::get('dashboard/doctors/create', [DoctorController::class, 'create'])->name('doctors.create')->middleware('admin');
 Route::post('storeDoctor', [DoctorController::class, 'storeDoctor'])->name('storeDoctor');
 Route::post('updateDoctor', [DoctorController::class, 'updateDoctor'])->name('updateDoctor');
 Route::get('/get-doctors', [DoctorController::class, 'getDoctors'])->name('getDoctors');
