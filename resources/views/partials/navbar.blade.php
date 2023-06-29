@@ -8,10 +8,10 @@
       <ul class="navbar-nav">
         
         <li class="nav-item">
-          <a class="nav-link" href="/forum">LiveChatForum</a>
+          <a class="nav-link" href="/moods">MoodTracker</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/moods">MoodTracker</a>
+          <a class="nav-link" href="/forum">LiveChatForum</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/doctors" >Find Psikiater</a>
