@@ -22,12 +22,12 @@
 @endif
 
     <main class="form-signin">
-    <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
+    <h1 class="h3 mb-3 fw-normal">Login</h1>
   <form action="/login" method="post">
       @csrf
     <div class="form-floating">
       <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" autofocus required value="{{ old ('email') }}">
-      <label for="email">Email address</label>
+      <label for="email">Email</label>
       @error('email')
       <div class="invalid-feedback">
         {{ $message }}

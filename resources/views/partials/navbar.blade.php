@@ -11,10 +11,10 @@
           <a class="nav-link" href="/moods">MoodTracker</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/forum">LiveChatForum</a>
+          <a class="nav-link" href="/forum">LiveChat</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/doctors" >Find Psikiater</a>
+          <a class="nav-link" href="/doctors" >Psikiater Nearby</a>
         </li>
         <?php $admin = auth()->user(); ?>
         @if ($admin && $admin->id == '1')
