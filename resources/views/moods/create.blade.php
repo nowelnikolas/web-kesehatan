@@ -104,32 +104,43 @@
                 @csrf
                 <h2 class="text-center mb-5 fw-bolder">How Are You Feeling Today?</h2>
                 <div class="row">
-                    <div class="col-md-3">
-                        <input type="radio" id="mood" name="mood" value="marah">
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="radio" id="mood" name="mood" value="Awfull">
                         {{--  <input type="hidden" id="img" name="img" value="assets/Angry-removebg-preview.png"> --}}
-                        <img class="small-img img-fluid" src="{{ asset('assets/Angry-removebg-preview.png') }}" width="auto" alt="..."  />
+                        <img class="small-img img-fluid" src="{{ asset('assets/awful.jpg') }}" width="200" height="200" alt="..."  />
+                        <h5 class="text-center mt-2 fw-bold">Awfull</h5>
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="radio" id="mood" name="mood" value="Bad">
+                        {{--  <input type="hidden" id="img" name="img" value="assets/Angry-removebg-preview.png"> --}}
+                        <img class="small-img img-fluid" src="{{ asset('assets/sad.jpeg') }}" width="200" height="200" alt="..."  />
+                        <h5 class="text-center mt-2 fw-bold">Bad</h5>
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="radio" id="mood" name="mood" value="Fine">
+                        {{-- <input type="hidden" id="img" name="img" value="assets/Happyg-removebg-preview.png"> --}}
+                        <img class="small-img img-fluid" src="{{ asset('assets/fine.jpeg') }}" width="200" height="200" alt="..." />
+                        <h5 class="text-center mt-2 fw-bold">Fine</h5>
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="radio" id="mood" name="mood" value="Good">
+                        {{-- <input type="hidden" id="img" name="img" value="assets/Sad-removebg-preview.png"> --}}
+                        <img class="small-img img-fluid" src="{{ asset('assets/great.jpeg') }}" width="200" height="200" alt="..." />
+                        <h5 class="text-center mt-2 fw-bold">Good</h5>
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="radio" id="mood" name="mood" value="Angry">
+                        {{-- <input type="hidden" id="img" name="img" value="assets/Smile-removebg-preview.png"> --}}
+                        <img class="small-img img-fluid" src="{{ asset('assets/angry.jpeg') }}" width="200" height="200" alt="..." />
                         <h5 class="text-center mt-2 fw-bold">Angry</h5>
                     </div>
-
-                    <div class="col-md-3">
-                        <input type="radio" id="mood" name="mood" value="senang">
-                        {{-- <input type="hidden" id="img" name="img" value="assets/Happyg-removebg-preview.png"> --}}
-                        <img class="small-img img-fluid" src="{{ asset('assets/Happyg-removebg-preview.png') }}" alt="..." />
-                        <h5 class="text-center mt-2 fw-bold">Happy</h5>
-                    </div>
-
-                    <div class="col-md-3">
-                        <input type="radio" id="mood" name="mood" value="sedih">
-                        {{-- <input type="hidden" id="img" name="img" value="assets/Sad-removebg-preview.png"> --}}
-                        <img class="small-img img-fluid" src="{{ asset('assets/Sad-removebg-preview.png') }}" alt="..." />
-                        <h5 class="text-center mt-2 fw-bold">Sad</h5>
-                    </div>
-
-                    <div class="col-md-3">
-                        <input type="radio" id="mood" name="mood" value="senyum">
-                        {{-- <input type="hidden" id="img" name="img" value="assets/Smile-removebg-preview.png"> --}}
-                        <img class="small-img img-fluid" src="{{ asset('assets/Smile-removebg-preview.png') }}" alt="..." />
-                        <h5 class="text-center mt-2 fw-bold">Good</h5>
+                    <div class="col-md-1">
                     </div>
                 </div>
                 <div class="col-md-12 text-center mt-5">

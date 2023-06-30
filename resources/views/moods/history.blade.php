@@ -70,9 +70,9 @@
             <a class="btn btn-success btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="/">Home</a>
         </div>
 
-        <div class="text-center mb-3">
+        {{-- <div class="text-center mb-3">
             <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="">MoodTracker History</a>
-        </div>
+        </div> --}}
 
 
         {{-- </div> --}}

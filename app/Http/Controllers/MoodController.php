@@ -26,7 +26,7 @@ class MoodController extends Controller
     public function result()
     {
         $user = auth()->user();
-        $mood = Mood::where('username', $user->username)->first();
+        $mood = Mood::where('username', $user->username)->orderBy('created_at', 'desc')->first();
         $timestamp = strtotime($mood->created_at);
         $day = date('l', $timestamp);
         $dated = date('d', $timestamp);
@@ -53,17 +53,20 @@ class MoodController extends Controller
             // 'img' => 'required'
         ]);
         // dd($request);
-        if($request->mood == 'marah'){
-            $img = 'assets/Angry-removebg-preview.png';
+        if($request->mood == 'Awfull'){
+            $img = 'assets/awful.jpg';
         }
-        if($request->mood == 'senang'){
-            $img = 'assets/Happyg-removebg-preview.png';
+        if($request->mood == 'Bad'){
+            $img = 'assets/sad.jpeg';
         }
-        if($request->mood == 'sedih'){
-            $img = 'assets/Sad-removebg-preview.png';
+        if($request->mood == 'Fine'){
+            $img = 'assets/fine.jpeg';
         }
-        if($request->mood == 'senyum'){
-            $img = 'assets/Smile-removebg-preview.png';
+        if($request->mood == 'Good'){
+            $img = 'assets/great.jpeg';
+        }
+        if($request->mood == 'Angry'){
+            $img = 'assets/angry.jpeg';
         }
     
         $mood = new Mood([

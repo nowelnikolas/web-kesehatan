@@ -95,80 +95,93 @@
                 <h2 class="text-center mb-5 fw-bolder">How Are You Feeling Today?</h2>
 
                 <div class="row mb-4">
-                    <div class="col-md-3">
-                        <input type="radio" id="todo" name="todo" value="working">
-                        <img class="small-img img-fluid" src="{{ asset('assets/working.png') }}" alt="..." /> 
+                    <div class="col-md-1">
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="radio" id="todo" name="todo" value="Working">
+                        <img class="small-img img-fluid" src="{{ asset('assets/10.jpg') }}" alt="..." /> 
                         <h5 class="text-center mt-2 fw-bold">Work</h5>
                     </div>
 
-                    <div class="col-md-3">
-                        <input type="radio" id="todo" name="todo" value="games">
-                        <img class="small-img img-fluid" src="{{ asset('assets/games.png') }}" alt="..." style=" " />
+                    <div class="col-md-2">
+                        <input type="radio" id="todo" name="todo" value="Games">
+                        <img class="small-img img-fluid" src="{{ asset('assets/13.jpg') }}" alt="..." style=" " />
                         <h5 class="text-center mt-2 fw-bold">Play Games</h5>
                     </div>
 
-                    <div class="col-md-3">
-                        <input type="radio" id="todo" name="todo" value="movie">
-                        <img class="small-img img-fluid" src="{{ asset('assets/movie.png') }}" alt="..." style=" " />
+                    <div class="col-md-2">
+                        <input type="radio" id="todo" name="todo" value="Movie">
+                        <img class="small-img img-fluid" src="{{ asset('assets/17.jpg') }}" alt="..." style=" " />
                         <h5 class="text-center mt-2 fw-bold">Watch Movie</h5>
                     </div>
 
-                    <div class="col-md-3">
-                        <input type="radio" id="todo" name="todo" value="workout">
-                        <img class="small-img img-fluid" src="{{ asset('assets/workout.jpeg') }}" alt="..." style=" " />
+                    <div class="col-md-2">
+                        <input type="radio" id="todo" name="todo" value="Workout">
+                        <img class="small-img img-fluid" src="{{ asset('assets/16.jpg') }}" alt="..." style=" " />
                         <h5 class="text-center mt-2 fw-bold">Workout</h5>
                     </div>
 
+                    <div class="col-md-2">
+                        <input type="radio" id="todo" name="todo" value="Walk">
+                        <img class="small-img img-fluid" src="{{ asset('assets/12.jpg') }}" alt="..." style=" " />
+                        <h5 class="text-center mt-2 fw-bold">Walk</h5>
+                    </div>
+                    
+                    <div class="col-md-1">
+                    </div>
                 </div>
-
-
-
+                
+                
+                
                 <div class="row mb-4">
-                    <div class="col-md-3">
-                        <input type="radio" id="todo" name="todo" value="study">
-                        <img class="small-img img-fluid" src="{{ asset('assets/study.jpeg') }}" alt="..." style=" " />
+                    
+                    <div class="col-md-1">
+                    </div>
+                    
+                    <div class="col-md-2">
+                        <input type="radio" id="todo" name="todo" value="Study">
+                        <img class="small-img img-fluid" src="{{ asset('assets/18.jpg') }}" alt="..." style=" " />
                         <h5 class="text-center mt-2 fw-bold">Study</h5>
                     </div>
-
-                    <div class="col-md-3">
-                        <input type="radio" id="todo" name="todo" value="shopping">
-                        <img class="small-img img-fluid" src="{{ asset('assets/shopping.jpeg') }}" alt="..." style=" " />
+                    
+                    <div class="col-md-2">
+                        <input type="radio" id="todo" name="todo" value="Shopping">
+                        <img class="small-img img-fluid" src="{{ asset('assets/11.jpg') }}" alt="..." style=" " />
                         <h5 class="text-center mt-2 fw-bold">Shopping</h5>
                     </div>
 
-                    <div class="col-md-3">
-                        <input type="radio" id="todo" name="todo" value="vacation">
-                        <img class="small-img img-fluid" src="{{ asset('assets/vacation.jpeg') }}" alt="..." style=" " />
+                    <div class="col-md-2">
+                        <input type="radio" id="todo" name="todo" value="Vacation">
+                        <img class="small-img img-fluid" src="{{ asset('assets/14.jpg') }}" alt="..." style=" " />
                         <h5 class="text-center mt-2 fw-bold">Vication</h5>
                     </div>
 
-                    <div class="col-md-3">
-                        <input type="radio" id="todo" name="todo" value="music">
-                        <img class="small-img img-fluid" src="{{ asset('assets/music.jpeg') }}" alt="..." style=" " />
+                    <div class="col-md-2">
+                        <input type="radio" id="todo" name="todo" value="Music">
+                        <img class="small-img img-fluid" src="{{ asset('assets/15.jpg') }}" alt="..." style=" " />
                         <h5 class="text-center mt-2 fw-bold">Listen Music</h5>
                     </div>
 
+    
+                    <div class="col-md-2">
+                        <input type="radio" id="todo" name="todo" value="Exercise">
+                        <img class="small-img img-fluid" src="{{ asset('assets/19.jpg') }}" alt="..." style=" " />
+                        <h5 class="text-center mt-2 fw-bold">Exercise</h5>
+                    </div>
+
+                    <div class="col-md-1">
+                    </div>
 
                 </div>
-
+{{-- 
                 <div class="row">
                     <div class="col-md-3">
                     </div>
 
                     <div class="col-md-3">
-                        <input type="radio" id="todo" name="todo" value="walk">
-                        <img class="small-img img-fluid" src="{{ asset('assets/run.png') }}" alt="..." style=" " />
-                        <h5 class="text-center mt-2 fw-bold">Walk</h5>
                     </div>
-
-                    <div class="col-md-3">
-                        <input type="radio" id="todo" name="todo" value="exercise">
-                        <img class="small-img img-fluid" src="{{ asset('assets/exercise.jpeg') }}" alt="..." style=" " />
-                        <h5 class="text-center mt-2 fw-bold">Exercise</h5>
-                    </div>
-                    <div class="col-md-3">
-                    </div>
-                </div>
+                </div> --}}
                 <div class="col-md-12 text-center mt-5">
                     <button type="submit" class="btn btn-primary btn-lg fs-6 fw-bolder">Tambah</button>
                 </div>

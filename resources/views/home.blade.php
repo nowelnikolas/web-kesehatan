@@ -156,22 +156,21 @@
     <div class="row">
       <div class="col-md-4">
         @if($home[0]->image)
-        <img src="{{ asset($home[0]->image) }}" alt="" class="img-fluid">
+          <img src="{{ asset($home[0]->image) }}" alt="" class="img-fluid">
         @else
-        <img src="https://source.unsplash.com/1200x400?nature,water" class="card-img-top" alt="...">
+          <img src="https://source.unsplash.com/1200x400?nature,water" class="card-img-top" alt="...">
         @endif
       </div>
       <div class="col-md-8">
-        <div class="card-body text-center">
-          <div class="mt-5">
-            <h3 class="card-title"><a href="/home/{{ $home[0]->slug }}" class="text-decoration-none text-dark">{{ $home[0]->title}}</a></h3>
-            <p class="card-text">{{ $home[0]->excerpt }}</p>
-            <a href="/home/{{ $home[0]->slug }}" class="text-decoration-none btn btn-primary">Read more</a>
-            <p class="card-text"><small class="text-muted">{{ $home[0]->created_at->diffForHumans() }}
-              </small>
-            </p>
+        <a href="/home/{{ $home[0]->slug }}" class="card-body text-decoration-none">
+          <div class="card-body text-center">
+            <div class="mt-5">
+              <h3 class="card-title">{{ $home[0]->title }}</h3>
+              <p class="card-text">{{ $home[0]->excerpt }}</p>
+              <p class="card-text"><small class="text-muted">{{ $home[0]->created_at->diffForHumans() }}</small></p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -182,7 +181,7 @@
     <div class="row">
       @foreach($home->skip(1) as $post)
 
-      <div class="col-md-4 mb-3">
+      <div class="col-md-3 mb-3">
         <div class="card">
           @if($post->image)
           <img src="{{ asset($post->image) }}" alt="" class="img-fluid">
@@ -190,20 +189,17 @@
           <img src="https://source.unsplash.com/500x400?nature,water" class="card-img-top" alt="...">
           @endif
 
-          <div class="card-body">
-            <h5 class="card-title">{{ $post->title}}</h5>
+          <a href="/home/{{ $post->slug }}" class="card-body text-decoration-none">
+            <h5 class="card-title">{{ $post->title }}</h5>
             <!-- <p class="card-text">{{ $post->excerpt }}</p> -->
-            <a href="/home/{{ $post->slug }}" class="text-decoration-none btn btn-primary">Read more</a>
-            <p class="card-text"><small class="text-muted">{{ $post->created_at->diffForHumans() }}
-              </small>
-            </p>
-          </div>
+            <p class="card-text"><small class="text-muted">{{ $post->created_at->diffForHumans() }}</small></p>
+          </a>
         </div>
       </div>
       @endforeach
     </div>
 
-    </d>
+    </div>
     @else
     <p class="text-center fs-4">No Article Found.</p>
     @endif

@@ -19,9 +19,13 @@
 @endif
 
 {{-- @foreach($topic->replies as $reply) --}}
-
-    <h1> {{ $topic->title }}</h1>
+<a href="/forum" class="btn btn-primary mt-2"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
+<br>
+<br>
     <div class="card border-3 mb-3" style="background-color:#00FFFF;">
+        <div class="card-header" style="background-color: #00cccc;">
+            <h1 class="card-title"> <img class="small-img img-fluid" src="{{ asset($topic->image) }}" width="50" height="50" alt="..." /> {{ $topic->title }}</h1>
+        </div>
 
         <div class="card-body">
             <div id="card-text-container"></div>

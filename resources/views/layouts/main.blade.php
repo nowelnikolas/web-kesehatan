@@ -36,6 +36,12 @@
     <!------My Style---->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/radio.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+    <style>
+      body {
+          font-family: 'Roboto Mono';font-size: 22px;
+      }
+      </style>
 
     <title>Healing Minds</title>
   </head>

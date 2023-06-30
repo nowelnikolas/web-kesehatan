@@ -63,7 +63,29 @@
 
                 <div class="d-flex justify-content-center mt-5 mt-xxl-0">
                     <div class="profile bg-gradient-primary-to-secondary">
-                        <img class="profile-img img-fluid mb-3" src="assets/Emoji.png" alt="..." />
+                        {{--  --}}
+                        {{-- <div class="row mb-4">
+                            <div class="col-md-6">
+                                <img class="small-img img-fluid" src="{{ asset('assets/great.jpeg') }}" alt="..." /> 
+                            </div>
+        
+                            <div class="col-md-6">
+                                <img class="small-img img-fluid" src="{{ asset('assets/sad.jpeg') }}" alt="..." style=" " />
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <img class="small-img img-fluid" src="{{ asset('assets/angry.jpeg') }}" alt="..." /> 
+                            </div>
+        
+                            <div class="col-md-6">
+                                <img class="small-img img-fluid" src="{{ asset('assets/fine.jpeg') }}" alt="..." style=" " />
+                            </div>
+                        </div> --}}
+                        {{--  --}}
+                        <img class="profile-img img-fluid mb-3" src="assets/moodtracker home.jpg" alt="..." />
+                        {{-- C:\xampp\htdocs\web-kesehatan\public\assets\moodtracker home.jpg --}}
                     </div>
                 </div>
 
